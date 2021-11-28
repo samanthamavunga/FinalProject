@@ -72,7 +72,7 @@
     <!-- ======= Users section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
-      <h1>What we Value?</h1>
+      <h1>Click on Relevent Button to get involved</h1>
         <div class="row">
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="icon-boxes d-flex flex-column justify-content-center">
@@ -81,20 +81,20 @@
               <!--for donor-->
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <h4>Education</h4>
+                    <h4>Mentor/Volunteer</h4>
                   </div>
                 </div>
 
                 <!--for mentee or parent-->
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <h4>Wellness</h4>
+                    <h4>Mentor/Parent</h4>
                   </div>
                 </div>
 
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <h4>Intergrity</h4>
+                    <h4>Donor</h4>
                   </div>
                 </div>
       

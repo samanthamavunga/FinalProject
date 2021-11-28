@@ -115,6 +115,10 @@
                   // destroy session after displaying errors
                   $_SESSION["errors"] = null;
               ?>
+              <h4> Our program accepts children ages 5-18. They can be enrolled in our community-Based Mentoring Program<br>
+                <br> We encourage 100% participation from both parents/guardian and child.<br> This is a wonderful opportunity for a
+                child to have an additionalsupport system on one-to-ne or group basis
+              </h4>
               <div class="form-control">
                   <label for="Firstname"><b>Firstname</b></label>
                   <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
@@ -132,6 +136,14 @@
                   <small id='usernameError'></small>
               </div>
 
+              <div  class="form-control">
+                <select>
+                  <option value=””>Male</option>
+                  <option value=””>Female</option>
+                  <option value=””>Other</option>
+                </select>
+              </div>
+
               <div class="form-control">
                   <label for="dob"><b>Date Of Birth</b></label>
                   <input type="date" placeholder="Enter date of birth" name="dob" id="dob" required>
@@ -141,6 +153,43 @@
                   <input type="text" placeholder="Enter Location" name="loc" id="loc" required>
               </div>
               
+              <div class="form-control">
+                  <label for="parents"><b>Name of Parent/Guardian</b></label>
+                  <input type="text" placeholder="Parent/Guardian name" name="par" id="par" required>
+              </div>
+
+              <div class="form-control">
+                  <label for="school_name"><b>Enter the name of your primary school</b></label>
+                  <input type="text" placeholder="Primary school name" name="sch" id="sch" required>
+              </div>
+
+              <div class="form-control">
+                <h1>What classes are you taking?<br>
+                  What subjects do you need most help?<br>
+                  What are your favourite subject?<br>
+                  What are your hobbies?<br>
+                  What do you want to be when you grow up?<br>
+                  What is your favorite color</h1>
+
+                <label for="w3review">Requiredfield:</label>
+
+                <textarea id="w3review" name="w3review" rows="4" cols="50">
+                  At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                </textarea>
+              </div>
+
+              <div class="form-control">
+                <fieldset>
+                  <legend>Weekly Days</legend>
+                  <label for="Monday"><checkbox id="mon" name="monday">Monday</label>
+                  <label for="Thuesday"><checkbox id="tue" name="tuesday">Tuesday</label>
+                  <label for="Wednesday"><checkbox id="wed" name="wedesday">Wednesday</label>
+                  <label for="Thursday"><checkbox id="thur" name="thursday">Thursday</label>
+                  <label for="Friday"><checkbox id="fri" name="friday">Friday</label>
+                </fieldset>
+                </div>
+
+
               <div class="form-control">
                   <label for="phonenumber"><b>Phone Number</b></label>
                   <input type="text" placeholder="Enter Phone Numer" name="pnum" id="pnum" required>
