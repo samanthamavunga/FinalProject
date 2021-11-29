@@ -65,17 +65,17 @@
   </section>
   <!-- End Hero -->
   
+
   <!--====Main --->
   <main id="main">
-
     <!-- ======= Users section ======= -->
     <section id="why-us" class="why-us">
       <div class="container">
-      <h1>Click on Relevent Button to get involved</h1>
-        <div class="row">
-          <div class="col-lg-8 d-flex align-items-stretch">
-            <div class="icon-boxes d-flex flex-column justify-content-center">
-              <div class="row">
+        <h1>Click on Relevent Button to get involved</h1>
+          <div class="row">
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="icon-boxes d-flex flex-column justify-content-center">
+                <div class="row">
 
               <!--for donor-->
                 <div class="col-xl-4 d-flex align-items-stretch">
@@ -104,18 +104,22 @@
       </div>
     </section><!-- End User Section -->
 
-    <!-- ======= Our Services Section ======= -->
 
+    <!-- ======= Our Services Section ======= -->
     <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
           <h2>ORGANISATION SUMMARY</h2>
-          <p>‘Aim To Shine’ is a unique initiative that seeks to provide one on one mentorship program to the primary students. Students are given a platform to discuss issues that affect them and counselling sessions where necessary. Technical support will also be offered and we expect that every student who passes through our hands has a new way of visualizing life, developing a positive mindset towards their education and by this they can eventually succeed. 
-
+          <p>‘Aim To Shine’ is a unique initiative that seeks to provide one on one mentorship program to the primary students. Students are given a platform to discuss issues that affect them and counselling sessions where necessary. 
+            Technical support will also be offered and we expect that every student who passes through our hands has a new way of visualizing life, developing 
+            a positive mindset towards their education and by this they can eventually succeed. 
           </p>
         </div>
+      </div>
+    </section>
 
+    <!--This section is for the organisation services-->
     <section id="services" class="services">
       <div class="container">
 
@@ -248,10 +252,8 @@
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container">
-
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
             <div class="swiper-slide">
               <div class="testimonial-wrap">
                 <div class="testimonial-item">
@@ -296,12 +298,10 @@
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            
-
-
           </div>
-
+        </div>
+      </div>
+    </section>
   </main><!-- End #main -->
 
 

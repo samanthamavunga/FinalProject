@@ -46,48 +46,42 @@
 
 <body>
 
-    <!-- ======= Top Bar ======= -->
-    <div id="topbar" class="d-flex align-items-center fixed-top">
-      <div class="container d-flex justify-content-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">aim.shine@gmail.com</a>
-          <i class="bi bi-phone"></i> +233 20924 6382
-        </div>
-    </div>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-center">
-
-        <h1 class="logo me-auto"><a href="index.html">Aim To Shine</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-        <!--nav-->
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
-            <li><a class="nav-link scrollto" href="about.php">About</a></li>
-            <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
-            <li><a class="nav-link scrollto" 
-            
-            
-            href="contact.php">Contact Us</a></li>
-          </ul>
-          <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
-        </nav><!-- .navbar -->
-
-        <a href="Registration.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">aim.shine@gmail.com</a>
+        <i class="bi bi-phone"></i> +233 20924 6382
       </div>
     </div>
-    </header><!-- End Header -->
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">Aim To Shine</a></h1>
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <!--nav-->
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto" href="about.php">About</a></li>
+          <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
+          <li><a class="nav-link scrollto" href="contact.php">Contact Us</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+      <a href="Registration.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
+    </div>
+  </header><!-- End Header -->
+
+
   <center>
     <main id="main">
-
       <!--Breadcrumbs-->
       <section class="breadcrumbs">
         <div class="container">
-
           <div class="d-flex justify-content-between align-items-center">
             <h2>Mentee/Parent</h2>
             <ol>
@@ -95,73 +89,82 @@
               <li>Register</li>
             </ol>
           </div>
-        <h2 style="color: #3498db">NOTE: Parents can login/Register for their children</h2>
+          <h2 style="color: #3498db">NOTE: Parents can login/Register for their children</h2>
         </div>
       </section> <!--End of Breadcrumps-->
+
+      <!--This message before the form-->
       <h2> Purpose</h2>
       <p> Our program accepts children ages 5-15. They can be enrolled in our community-Based Mentoring Program<br>
                 <br> We encourage 100% participation from both parents/guardian and child.<br> This is a wonderful opportunity for a
                 child to have an additionalsupport system on one-to-ne or group basis
       </p>
+
+      <!--This is for the inside page that contain the form--->
       <section class="inner-page">
         <div class="container1">
           <p>
 
-          <!-- ADD THIS ATTRIBUTE TO THE FORM TO ALSO VALIDATE WITH JAVASCRIPT BEFORE SUBMITTING TO BACKEND:
-          onsubmit="return validateForm(event);" 
-          -->
-          <form id="form" class="form" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
+            <!-- ADD THIS ATTRIBUTE TO THE FORM TO ALSO VALIDATE WITH JAVASCRIPT BEFORE SUBMITTING TO BACKEND:
+            onsubmit="return validateForm(event);" 
+            -->
+            <form id="form" class="form" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
               <h2>Register With Us</h2> 
-              <p>Already have an account? <a href="login.php">Sign in</a>.</p>
-          
-              
-              ?>
+              <p>
+                Already have an account? <a href="login.php">Sign in</a>
+              </p>
+            
+              <!--This php will insert into the database--->
               <?php
-                  //query
-                  if(isset($_POST['register'])){
-                    $fname = $_POST['fname'];
-                    $lname = $_POST['lname'];
-                    $username = $_POST['uname'];
-                    $gender = $_POST['gender'];
-                    $dob = $_POST['dob']; 
-                    $location = $_POST['loc'];
-                    $street_name = $_POST['street_loc'];
-                    $par = $_POST['par'];
-                    $sch = $_POST['sch'];
-                    $randominfor =$_POST['randominfor'];
-                    $pnum = $_POST['pnum'];
-                    $psw = $_POST['password'];
-                    $psw_repeat= $_POST['password2'];
-                    $image = $_POST['image'];
-                    
-                    echo "obtined items";
-                    if($psw==$psw_repeat)
-                    {
-                        $sql="INSERT INTO `register`(`firstname`, `lastname`, `username`, `gender`, `dob`, `location`, `street_name`, `parentname`, `school`, `randominfor`, `phonenumber`, `password`, `image`) VALUES ('$fname', '$lname','$username','$gender','$dob','$location','$street_name','$par','$sch','$randominfor','$pnum','$psw','$image')";
-                        
-                        if ($conn->query($sql) === TRUE) {
-                            header("location:login.php");
-                        } else {echo "not connecting";}                               
-                    }else{
-                        echo "<p style='color:red;'Passwords don't match or some fields are empty</p>";
-                    }  
+                //query
+                if(isset($_POST['register']))
+                {
+                  $fname = $_POST['fname'];
+                  $lname = $_POST['lname'];
+                  $username = $_POST['uname'];
+                  $gender = $_POST['gender'];
+                  $dob = $_POST['dob']; 
+                  $location = $_POST['loc'];
+                  $street_name = $_POST['street_loc'];
+                  $par = $_POST['par'];
+                  $sch = $_POST['sch'];
+                  $randominfor =$_POST['randominfor'];
+                  $pnum = $_POST['pnum'];
+                  $psw = $_POST['password'];
+                  $psw_repeat= $_POST['password2'];
+                  $image = $_POST['image'];
+                  
+                  echo "obtined items";
+                  if($psw==$psw_repeat)
+                  {
+                      $sql="INSERT INTO `register`(`firstname`, `lastname`, `username`, `gender`, `dob`, `location`, `street_name`, `parentname`, `school`, `randominfor`, `phonenumber`, `password`, `image`) VALUES ('$fname', '$lname','$username','$gender','$dob','$location','$street_name','$par','$sch','$randominfor','$pnum','$psw','$image')";
+                      
+                      if ($conn->query($sql) === TRUE) {
+                          header("location:login.php");
+                  } 
+                      else {echo "not connecting";}                               
+                  }
+                  else{
+                      echo "<p style='color:red;'Passwords don't match or some fields are empty</p>";}
                 }
               ?>
+
+
               <div class="form-control">
-                  <label for="Firstname"><b>Firstname</b></label>
-                  <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
-                  <small id='fnameError'></small>
-              </div>
-               
-              <div class="form-control">
-                  <label for="Lastname"><b>Lastname</b></label>
-                  <input type="text" placeholder="Enter Lastname" name="lname" id="lname" required>
+                <label for="Firstname"><b>Firstname</b></label>
+                <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
+                <small id='fnameError'></small>
               </div>
               
               <div class="form-control">
-                  <label for="username"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" id="username" name="uname" required>
-                  <small id='usernameError'></small>
+                <label for="Lastname"><b>Lastname</b></label>
+                <input type="text" placeholder="Enter Lastname" name="lname" id="lname" required>
+              </div>
+              
+              <div class="form-control">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" name="uname" required>
+                <small id='usernameError'></small>
               </div>
 
               <div  class="form-control">
@@ -175,12 +178,13 @@
               </div>
 
               <div class="form-control">
-                  <label for="dob"><b>Date Of Birth</b></label>
-                  <input type="date" placeholder="Enter date of birth" name="dob" id="dob" required>
+                <label for="dob"><b>Date Of Birth</b></label>
+                <input type="date" placeholder="Enter date of birth" name="dob" id="dob" required>
+              </div>
 
               <div class="form-control">
-                  <label for="Location"><b>Location</b></label>
-                  <input type="text" placeholder="Enter Location" name="loc" id="loc" required>
+                <label for="Location"><b>Location</b></label>
+                <input type="text" placeholder="Enter Location" name="loc" id="loc" required>
               </div>
 
               <div class="form-control">
@@ -189,13 +193,13 @@
               </div>
               
               <div class="form-control">
-                  <label for="parents"><b>Name of Parent/Guardian</b></label>
-                  <input type="text" placeholder="Parent/Guardian name" name="par" id="par" required>
+                <label for="parents"><b>Name of Parent/Guardian</b></label>
+                <input type="text" placeholder="Parent/Guardian name" name="par" id="par" required>
               </div>
 
               <div class="form-control">
-                  <label for="school_name"><b>Enter the name of your primary school</b></label>
-                  <input type="text" placeholder="Primary school name" name="sch" id="sch" required>
+                <label for="school_name"><b>Enter the name of your primary school</b></label>
+                <input type="text" placeholder="Primary school name" name="sch" id="sch" required>
               </div>
 
               <div class="form-control">
@@ -204,47 +208,43 @@
                   What are your favourite subject?<br>
                   What are your hobbies?<br>
                   What do you want to be when you grow up?<br>
-                  What is your favorite color</p>
-
+                  What is your favorite color
+                </p>
                 <label for="randominfor">Answer biefly</label>
-
-                <textarea id="randominfor" name="randominfor" rows="4" cols="50">
-                </textarea>
-                </div>
+                <textarea id="randominfor" name="randominfor" rows="4" cols="50"> </textarea>
+              </div>
 
 
               <div class="form-control">
-                  <label for="phonenumber"><b>Phone Number</b></label>
-                  <input type="text" placeholder="Enter Phone Numer" name="pnum" id="pnum" required>
+                <label for="phonenumber"><b>Phone Number</b></label>
+                <input type="text" placeholder="Enter Phone Numer" name="pnum" id="pnum" required>
               </div>
 
               <div class="form-control">
-                  <label for="password"><b>Password</b></label>
-                  <input type="password" placeholder="Enter password" id="password" name="password" required>
-                  <small id='passwordError'></small>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter password" id="password" name="password" required>
+                <small id='passwordError'></small>
               </div>
 
               <div class="form-control">
-                  <label for="password2"><b>Confirm Password</b></label>
-                  <input type="password" placeholder="Confirm Your Password" id="password2" name="password2" required>
-                  <small id='password2Error'></small>
+                <label for="password2"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Confirm Your Password" id="password2" name="password2" required>
+                <small id='password2Error'></small>
               </div>
 
               <div class="form-control">
-                  <label for=""><b>Upload image</b></label>
-                  <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
+                <label for=""><b>Upload image</b></label>
+                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
               </div>
 
               <small id='success'></small>
               <input type="submit" id='submitBtn' name="register" value="Submit">
-          </form>
-      </div>
+            </form>
           </p>
         </div>
       </section>
-
     </main><!-- End #main -->
-</center>
+  </center>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
