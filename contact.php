@@ -34,13 +34,13 @@
 </head>
 <body>
 
-    <!-- ======= Top Bar ======= -->
-    <div id="topbar" class="d-flex align-items-center fixed-top">
-      <div class="container d-flex justify-content-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">aim.shine@gmail.com</a>
-          <i class="bi bi-phone"></i> +233 20924 6382
-        </div>
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">aim.shine@gmail.com</a>
+        <i class="bi bi-phone"></i> +233 20924 6382
+      </div>
     </div>
 
     <!-- ======= Header ======= -->
@@ -48,7 +48,6 @@
       <div class="container d-flex align-items-center">
 
         <h1 class="logo me-auto"><a href="index.html">Aim To Shine</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
         <!--nav-->
@@ -59,62 +58,61 @@
             <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
             <li><a class="nav-link scrollto"  href="contact.php">Contact Us</a></li>
           </ul>
-          <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
         </nav><!-- .navbar -->
-
         <a href="Registration.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
       </div>
-    </div>
     </header><!-- End Header -->
+  </div>
+  </header><!-- End Header -->
 
-    <center>
+  <center>
     <main id="main">
 
       <!--Breadcrumbs-->
       <section class="breadcrumbs">
         <div class="container">
-        <h2 style="color: #3498db">Fee free to reach out</h2>
+          <h2 style="color: #3498db">Fee free to reach out<br>Note: 
+           You can call or email us on the address above
+          </h2>
         </div>
-        <h2 style="color: #3498db">Note: You can call or email us on the address above</h2>
       </section> <!--End of Breadcrumps-->
       
+      <!--This is for the iside page that contain the form--->
       <section class="inner-page">
         <div class="container1">
           <p>
-   
-    <img src="assets/img/avatar_for_login.png" alt="image">
-    <h3>Contact Form</h3>
+    
+            <img src="assets/img/avatar_for_login.png" alt="image">
+            <h3>Contact Form</h3>
 
       
-      <form action="/action_page.php">
-        <div class="form-control">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-        </div>
+            <form action="/action_page.php">
+              <div class="form-control">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+              </div>
         
-        <div class="form-control">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+              <div class="form-control">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+              </div>
+              
+              <div class="form-control">
+                <label for="email">Email or Phonenumber</label>
+                <input type="text" id="lname" name="email" placeholder="Email/phonenumber">
+              </div>
+              
+              <div class="form-control">
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write your message.." style="height:200px" rows="8" cols="50"></textarea>
+              </div>
+              <input style="background-color:blue," type="submit" value="Submit">
+            </form>
+         </p>
        </div>
-        
-       <div class="form-control">
-          <label for="email">Email or Phonenumber</label>
-          <input type="text" id="lname" name="email" placeholder="Email/phonenumber">
-       </div>
-        
-       <div class="form-control">
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write your message.." style="height:200px" rows="8" cols="50"></textarea>
-      </div>
-      
-          
-        <input style="background-color:blue," type="submit" value="Submit">
-      </form>
-    </p>
-</div>
-
-          
-</center>
+     </section>
+   </main> 
+  </center>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -165,15 +163,15 @@
     </div>
 
     <div class="container d-md-flex py-4">
-
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
           &copy; Copyright <strong><span>AimToShine</span></strong>. All Rights Reserved
-        </div>
-        
-    </div>
+        </div> 
+      </div>
+   </div>
   </footer><!-- End Footer -->
 
+  <!--This is for the back to top arrow-->
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -189,5 +187,4 @@
   <script src="script.js"></script>
 
 </body>
-
 </html>
