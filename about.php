@@ -32,7 +32,6 @@
   
 
 </head>
-
 <body>
 
     <!-- ======= Top Bar ======= -->
@@ -56,9 +55,9 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="#mentorship">Our Mentorship</a></li>
-            <li><a class="nav-link scrollto" href="#donations">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="about.php">About</a></li>
+            <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
+            <li><a class="nav-link scrollto"  href="contact.php">Contact Us</a></li>
           </ul>
           <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
         </nav><!-- .navbar -->
@@ -68,200 +67,59 @@
     </div>
     </header><!-- End Header -->
   <center>
+  
     <main id="main">
-
       <!--Breadcrumbs-->
       <section class="breadcrumbs">
         <div class="container">
-
-          <div class="d-flex justify-content-between align-items-center">
-            <h6><a href="login.php">Login</a>/Mentee</h6>
-            <ol>
-              <li><a href="login.php">Login</a></li>
-              <li>Admin</li>
-            </ol>
-          </div>
-        <h2 style="color: blue">NOTE: Parents can login/Register for their children</h2>
+        <h1 style="color: #3498db">AIM TO SHINE</h1>
         </div>
       </section> <!--End of Breadcrumps-->
+      <img src="assets/img/mentorship.jpg" width="100%" alt=" about image">
 
-      <section class="inner-page">
-        <div class="container1">
-          <p>
-
-          
-          <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-/* Set a style for all buttons */
-button {
-  background-color: #3498db;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 20%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
-</head>
-<body>
-
-<h2>Modal Login Form</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="assets/img/avatar_for_login.png" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+    <section class="organisatio">
+        <div class="org">
+        <h1> Our Organization</h1>
         
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+        <p>
+          ‘Aim To Shine’ is a unique initiative that seeks to provide one on one mentorship program to the primary students. 
+        </p>
+      </div>
+
+
+      <div class="org">
+        <h1> Our Values</h1>
+        <img src="assets/img/our-values.jpg" height="180" width="300" alt=" about image">
+        <p>
+          Integrity, Collaboration, Respect, Hardworking
+        </p>
+      </div>
+
+      <div class="org">
+
+        <h1> Our Aim</h1>
+        <img src="assets/img/our_aim.jfif" height="180" width="300" alt=" about image">
+        <p>
+        <p>
+          ‘Aim To Shine’. To educate ethical future African leaders and build better tomorrow through mentorship to primary school students 
+
+        </p>
+      </div>
+</section>
+
+
+    <div class="org">
+      <h1> Our Motto</h1>
+      <img src="assets/img/our_motto.jfif" height="200" width="300" alt=" about image">
+      <p>
+        Knowledge is power
+
+      </p>
     </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
-</main><!-- End #main -->
+      
+          
 </center>
-
-<!--This javascript willvalidate the login form-->
-<script>
-  // Get the modal
-  var modal = document.getElementById('id01');
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
-  }
-</script>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -333,6 +191,7 @@ span.psw {
 
   <!-- JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 
 </body>
 

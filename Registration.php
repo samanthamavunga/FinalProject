@@ -1,3 +1,14 @@
+<?php require('db_cred.php');
+    // start session so that the errors can be available in this file
+    //create connection
+    $conn=new mysqli(SERVER,USERNAME,PASSWORD,DATABASE);
+
+    //check connection 
+    if($conn->connect_error){
+      die("Connection failed:".$conn->connect_error);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +42,7 @@
   <link href="assets/css/inner.css" rel="stylesheet">
   
 
-</head>
+</head>                                                                         
 
 <body>
 
@@ -56,10 +67,12 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
             <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="#mentorship">Our Mentorship</a></li>
-            <li><a class="nav-link scrollto" href="registration.php">Our Team</a></li>
-            <li><a class="nav-link scrollto" href="#donations">Contact Us</a></li>
+            <li><a class="nav-link scrollto" href="about.php">About</a></li>
+            <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
+            <li><a class="nav-link scrollto" 
+            
+            
+            href="contact.php">Contact Us</a></li>
           </ul>
           <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
         </nav><!-- .navbar -->
@@ -82,43 +95,58 @@
               <li>Register</li>
             </ol>
           </div>
-        <h2 style="color: blue">NOTE: Parents can login/Register for their children</h2>
+        <h2 style="color: #3498db">NOTE: Parents can login/Register for their children</h2>
         </div>
       </section> <!--End of Breadcrumps-->
-
+      <h2> Purpose</h2>
+      <p> Our program accepts children ages 5-15. They can be enrolled in our community-Based Mentoring Program<br>
+                <br> We encourage 100% participation from both parents/guardian and child.<br> This is a wonderful opportunity for a
+                child to have an additionalsupport system on one-to-ne or group basis
+      </p>
       <section class="inner-page">
         <div class="container1">
           <p>
 
-  <?php
-    // start session so that the errors can be available in this file
-    session_start();
-  ?>
-
           <!-- ADD THIS ATTRIBUTE TO THE FORM TO ALSO VALIDATE WITH JAVASCRIPT BEFORE SUBMITTING TO BACKEND:
           onsubmit="return validateForm(event);" 
           -->
-          <form id="form" class="form"  action="functions/register_user_function.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
+          <form id="form" class="form" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
               <h2>Register With Us</h2> 
               <p>Already have an account? <a href="login.php">Sign in</a>.</p>
-
-              <?php
-                  if(isset($_SESSION["errors"])){
-                      $errors = $_SESSION["errors"];
-                      // loop through errors and display them
-                      foreach($errors as $error){
-                          ?>
-                              <small style="color: red"><?= $error."<br>"; ?></small>
-                          <?php
-                      }
-                  }
-                  // destroy session after displaying errors
-                  $_SESSION["errors"] = null;
+          
+              
               ?>
-              <h4> Our program accepts children ages 5-18. They can be enrolled in our community-Based Mentoring Program<br>
-                <br> We encourage 100% participation from both parents/guardian and child.<br> This is a wonderful opportunity for a
-                child to have an additionalsupport system on one-to-ne or group basis
-              </h4>
+              <?php
+                  //query
+                  if(isset($_POST['register'])){
+                    $fname = $_POST['fname'];
+                    $lname = $_POST['lname'];
+                    $username = $_POST['uname'];
+                    $gender = $_POST['gender'];
+                    $dob = $_POST['dob']; 
+                    $location = $_POST['loc'];
+                    $street_name = $_POST['street_loc'];
+                    $par = $_POST['par'];
+                    $sch = $_POST['sch'];
+                    $randominfor =$_POST['randominfor'];
+                    $pnum = $_POST['pnum'];
+                    $psw = $_POST['password'];
+                    $psw_repeat= $_POST['password2'];
+                    $image = $_POST['image'];
+                    
+                    echo "obtined items";
+                    if($psw==$psw_repeat)
+                    {
+                        $sql="INSERT INTO `register`(`firstname`, `lastname`, `username`, `gender`, `dob`, `location`, `street_name`, `parentname`, `school`, `randominfor`, `phonenumber`, `password`, `image`) VALUES ('$fname', '$lname','$username','$gender','$dob','$location','$street_name','$par','$sch','$randominfor','$pnum','$psw','$image')";
+                        
+                        if ($conn->query($sql) === TRUE) {
+                            header("location:login.php");
+                        } else {echo "not connecting";}                               
+                    }else{
+                        echo "<p style='color:red;'Passwords don't match or some fields are empty</p>";
+                    }  
+                }
+              ?>
               <div class="form-control">
                   <label for="Firstname"><b>Firstname</b></label>
                   <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
@@ -132,15 +160,17 @@
               
               <div class="form-control">
                   <label for="username"><b>Username</b></label>
-                  <input type="text" placeholder="Enter Username" id="username" name="username" required>
+                  <input type="text" placeholder="Enter Username" id="username" name="uname" required>
                   <small id='usernameError'></small>
               </div>
 
               <div  class="form-control">
-                <select>
-                  <option value=””>Male</option>
-                  <option value=””>Female</option>
-                  <option value=””>Other</option>
+              <label for="gender"><b>Select your gender</b></label>
+                <select id="gd" name="gender">
+                  <option value=”--select---”>--select---</option>
+                  <option value=”male”>Male</option>
+                  <option value=”female”>Female</option>
+                  <option value=”other”>Other</option>
                 </select>
               </div>
 
@@ -151,6 +181,11 @@
               <div class="form-control">
                   <label for="Location"><b>Location</b></label>
                   <input type="text" placeholder="Enter Location" name="loc" id="loc" required>
+              </div>
+
+              <div class="form-control">
+                  <label for="Street"><b>Street Name</b></label>
+                  <input type="text" placeholder="Enter streetname" name="street_loc" id="loc" required>
               </div>
               
               <div class="form-control">
@@ -164,29 +199,17 @@
               </div>
 
               <div class="form-control">
-                <h1>What classes are you taking?<br>
+                <p id="fieldreq">What classes are you taking?<br>
                   What subjects do you need most help?<br>
                   What are your favourite subject?<br>
                   What are your hobbies?<br>
                   What do you want to be when you grow up?<br>
-                  What is your favorite color</h1>
+                  What is your favorite color</p>
 
-                <label for="w3review">Requiredfield:</label>
+                <label for="randominfor">Answer biefly</label>
 
-                <textarea id="w3review" name="w3review" rows="4" cols="50">
-                  At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+                <textarea id="randominfor" name="randominfor" rows="4" cols="50">
                 </textarea>
-              </div>
-
-              <div class="form-control">
-                <fieldset>
-                  <legend>Weekly Days</legend>
-                  <label for="Monday"><checkbox id="mon" name="monday">Monday</label>
-                  <label for="Thuesday"><checkbox id="tue" name="tuesday">Tuesday</label>
-                  <label for="Wednesday"><checkbox id="wed" name="wedesday">Wednesday</label>
-                  <label for="Thursday"><checkbox id="thur" name="thursday">Thursday</label>
-                  <label for="Friday"><checkbox id="fri" name="friday">Friday</label>
-                </fieldset>
                 </div>
 
 
@@ -213,7 +236,7 @@
               </div>
 
               <small id='success'></small>
-              <button type="submit" id='submitBtn' name="submit">Submit</button>
+              <input type="submit" id='submitBtn' name="register" value="Submit">
           </form>
       </div>
           </p>
@@ -293,6 +316,7 @@
 
   <!-- JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="script.js"></script>
 
 </body>
 

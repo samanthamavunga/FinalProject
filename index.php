@@ -43,9 +43,8 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="about.php">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Our Mentorship</a></li>
-          <li><a class="nav-link scrollto" href="registration.php">Our Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact Us</a></li>
+          <li><a class="nav-link scrollto" href="#services">Our Mentorship</a></li> 
+          <li><a class="nav-link scrollto" href="contact.php">Contact Us</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

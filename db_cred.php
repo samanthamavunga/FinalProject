@@ -2,7 +2,7 @@
 
 <?php
 //Database credentials
-define("DATABASE", "lab_post");
+define("DATABASE", "aimtoshine");
 define("SERVER", "localhost");
 define("USERNAME", "root");
 define("PASSWORD", "");

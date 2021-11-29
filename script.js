@@ -1,7 +1,6 @@
 // Select UI elements or inputs
 const form = $('#form');
 const username = $('#username');
-const email = $('#email')
 const password = $('#password');
 const password2 = $('#password2');
 
@@ -38,6 +37,7 @@ const checkInputLength = (input, min, max) => {
     }
 }
 
+/*
 const checkEmail = (input) => {
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -45,6 +45,7 @@ const checkEmail = (input) => {
         showError(input.next(), 'Email is not valid');
     }
 }
+*/
 
 const checkPasswordMatch = (password1, password2) => {
     if(password1.val() != password2.val()){
@@ -64,13 +65,12 @@ const validateForm = (e) =>{
     errors = 0;
 
     // TODO check for required inputs
-    checkRequired([username, email, password, password2]);
+    checkRequired([username, password, password2]);
     // TODO check for username length
     checkInputLength(username, 5, 10);
     // TODO check for password length
     checkInputLength(password, 5, 10);
-    // TODO check for valid email
-    checkEmail(email);
+
     // TODO check if the passwords match
     checkPasswordMatch(password, password2);
 

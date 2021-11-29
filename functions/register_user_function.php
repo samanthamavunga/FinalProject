@@ -8,7 +8,6 @@ $errors = array();
 if(isset($_POST["submit"])){
     // grab form data
     $username = $_POST["username"];
-    $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["password2"];
 
@@ -17,9 +16,7 @@ if(isset($_POST["submit"])){
     if(empty($username)){
         array_push($errors, "name is requried");
     }
-    if(empty($email)){
-        array_push($errors, "email is requried");
-    }
+    
     if(empty($password)){
         array_push($errors, "password is requried");
     }
@@ -28,18 +25,18 @@ if(isset($_POST["submit"])){
     }
 
     // check if email already exists
-    $verify_email = verify_email_fxn($email);
-    if(!$verify_email){
-        array_push($errors, "email already exists");
-    }
+    //$verify_email = verify_email_fxn($email);
+    //if(!$verify_email){
+       // array_push($errors, "email already exists");
+    //}
 
     // check if fields are of appropriate length
     if(strlen($username) > 100){
         array_push($errors, "username must be shorter than 100 characters");
     }
-    if(strlen($email) > 100){
-        array_push($errors, "email must be shorter than 100 characters");
-    }
+    //if(strlen($email) > 100){
+       // array_push($errors, "email must be shorter than 100 characters");
+   // }
 
     // check if passwords are the same
     if($password != $confirm_password){
@@ -47,11 +44,11 @@ if(isset($_POST["submit"])){
     }
 
     // validate email with regex
-    $regex = "/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix";
+    //$regex = "/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix";
     // set an error if not a valid email address
-    if(!preg_match($regex, $email)){
-        array_push($errors, "enter a valid email address");
-    }
+    //if(!preg_match($regex, $email)){
+       // array_push($errors, "enter a valid email address");
+    //}
 
     // image validation
     $target_dir = "images/";
