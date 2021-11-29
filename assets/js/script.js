@@ -1,6 +1,65 @@
+/*
+<?php require('db_cred.php');
+    // start session so that the errors can be available in this file
+    //create connection
+    $conn=new mysqli(servername, username, password, dbname);
+
+    //check connection 
+    if($conn->connect_error){
+      die("Connection failed:".$conn->connect_error);
+    }
+?>
+
+
+<!--This php will insert into the database--->
+<?php
+  //query
+  if(isset($_POST['register']))
+  {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $username = $_POST['uname'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob']; 
+    $location = $_POST['loc'];
+    $street_name = $_POST['street_loc'];
+    $par = $_POST['par'];
+    $sch = $_POST['sch'];
+    $randominfor =$_POST['randominfor'];
+    $pnum = $_POST['pnum'];
+    $psw = $_POST['password'];
+    $psw_repeat= $_POST['password2'];
+    $image = $_POST['image'];
+    
+    echo "obtined items";
+    if($psw==$psw_repeat)
+    {
+        $sql="INSERT INTO `register`(`firstname`, `lastname`, `username`, `gender`, `dob`, `location`, `street_name`, `parentname`, `school`, `randominfor`, `phonenumber`, `password`, `image`) VALUES ('$fname', '$lname','$username','$gender','$dob','$location','$street_name','$par','$sch','$randominfor','$pnum','$psw','$image')";
+        
+        if ($conn->query($sql) === TRUE) {
+            header("location:login.php");
+    } 
+        else {echo "not connecting";}                               
+    }
+    else{
+        echo "<p style='color:red;'Passwords don't match or some fields are empty</p>";}
+  }
+?>
+
+*/
+
 // Select UI elements or inputs
 const form = $('#form');
+const fname = $('#fname');
+const lname = $('#lname');
 const username = $('#username');
+const gender = $('#gd');
+const dateofbirth = $('#dob');
+const location = $('#loc');
+const streetname = $('#street_name');
+const parents = $('#par');
+const school= $('#sch');
+const shorttext = $('#randominfor');
 const password = $('#password');
 const password2 = $('#password2');
 
@@ -67,9 +126,9 @@ const validateForm = (e) =>{
     // TODO check for required inputs
     checkRequired([username, password, password2]);
     // TODO check for username length
-    checkInputLength(username, 5, 10);
+    checkInputLength(username, 5, 20);
     // TODO check for password length
-    checkInputLength(password, 5, 10);
+    checkInputLength(password, 5, 15);
 
     // TODO check if the passwords match
     checkPasswordMatch(password, password2);

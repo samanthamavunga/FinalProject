@@ -1,14 +1,7 @@
-<?php require('db_cred.php');
-    // start session so that the errors can be available in this file
-    //create connection
-    $conn=new mysqli(SERVER,USERNAME,PASSWORD,DATABASE);
-
-    //check connection 
-    if($conn->connect_error){
-      die("Connection failed:".$conn->connect_error);
-    }
+<?php
+// start session so that the errors can be available in this file
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +64,8 @@
           <li><a class="nav-link scrollto" href="index.php #services">Our Mentorship</a></li>
           <li><a class="nav-link scrollto" href="contact.php">Contact Us</a></li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav><!-- end.navbar -->
+
       <a href="Registration.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
     </div>
   </header><!-- End Header -->
@@ -105,50 +99,26 @@
         <div class="container1">
           <p>
 
-            <!-- ADD THIS ATTRIBUTE TO THE FORM TO ALSO VALIDATE WITH JAVASCRIPT BEFORE SUBMITTING TO BACKEND:
-            onsubmit="return validateForm(event);" 
+            <!-- Registration form with javasript validation before php validation
             -->
-            <form id="form" class="form" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
+            <form id="form" class="form" method="POST" enctype="multipart/   form-data" action="functions/register_user_function.php" onsubmit="return validateForm(event);">
               <h2>Register With Us</h2> 
+              <?php
+                if(isset($_SESSION["errors"])){
+                    $errors = $_SESSION["errors"];
+                    // loop through errors and display them
+                    foreach($errors as $error){
+                        ?>
+                            <small style="color: red"><?= $error."<br>"; ?></small>
+                        <?php
+                    }
+                }
+                // destroy session after displaying errors
+                $_SESSION["errors"] = null;
+              ?>
               <p>
                 Already have an account? <a href="login.php">Sign in</a>
               </p>
-            
-              <!--This php will insert into the database--->
-              <?php
-                //query
-                if(isset($_POST['register']))
-                {
-                  $fname = $_POST['fname'];
-                  $lname = $_POST['lname'];
-                  $username = $_POST['uname'];
-                  $gender = $_POST['gender'];
-                  $dob = $_POST['dob']; 
-                  $location = $_POST['loc'];
-                  $street_name = $_POST['street_loc'];
-                  $par = $_POST['par'];
-                  $sch = $_POST['sch'];
-                  $randominfor =$_POST['randominfor'];
-                  $pnum = $_POST['pnum'];
-                  $psw = $_POST['password'];
-                  $psw_repeat= $_POST['password2'];
-                  $image = $_POST['image'];
-                  
-                  echo "obtined items";
-                  if($psw==$psw_repeat)
-                  {
-                      $sql="INSERT INTO `register`(`firstname`, `lastname`, `username`, `gender`, `dob`, `location`, `street_name`, `parentname`, `school`, `randominfor`, `phonenumber`, `password`, `image`) VALUES ('$fname', '$lname','$username','$gender','$dob','$location','$street_name','$par','$sch','$randominfor','$pnum','$psw','$image')";
-                      
-                      if ($conn->query($sql) === TRUE) {
-                          header("location:login.php");
-                  } 
-                      else {echo "not connecting";}                               
-                  }
-                  else{
-                      echo "<p style='color:red;'Passwords don't match or some fields are empty</p>";}
-                }
-              ?>
-
 
               <div class="form-control">
                 <label for="Firstname"><b>Firstname</b></label>
@@ -189,7 +159,7 @@
 
               <div class="form-control">
                   <label for="Street"><b>Street Name</b></label>
-                  <input type="text" placeholder="Enter streetname" name="street_loc" id="loc" required>
+                  <input type="text" placeholder="Enter streetname" name="street_loc" id="street_loc" required>
               </div>
               
               <div class="form-control">
@@ -313,10 +283,11 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 
 </body>
 
