@@ -153,10 +153,10 @@ span.psw {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%; 
+  height: 100%; 
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   padding-top: 60px;
 }
@@ -337,3 +337,66 @@ span.psw {
 </body>
 
 </html>
+
+
+
+<!-- php script 
+<?php require("Database_Connections/db_cred.php");
+          if(isset($_POST["login"])){
+            $uname = $_POST["uname"];
+            $pass = $_POST["psw"];
+          }
+          
+            // Create connection
+            $conn = new mysqli(servername,username,password,dbname);
+
+            // Check connection
+            $uname="";
+            $pass="";
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "Select username, password from person where username='$uname' AND password='$pass'";
+
+            $results= $conn->query($sql);
+            
+            //connection is successful if the number of rows in
+            //result is exactly 1.
+            if($results!==false && $results->num_rows==1){
+                $_SESSION["uname"]=$uname;
+                header("location:dashboard.php");
+            }
+
+
+
+            <?php require ('Database_Connections/db_cred.php');
+
+$data=mysqli_connect(servername,username,password,dbname);
+if ($data===false) {
+  die("Connection error");
+}
+
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+  $username=$_POST["username"];
+  $password=$_POST["password"];
+
+  $sql = "SELECT* from person where username='".$username."' AND password='".$password."'";
+
+  $result=mysqli_connect($data,$sql);
+  $row=mysqli_fetch_array($result);
+
+  if($row["user_type"]=="mentee"){
+    echo "mentee";
+  }
+
+  elseif($row["user_type"]=="mentor"){
+    echo "mentor";
+  }
+
+  else{
+     echo "usernaor pasword is incorrect";
+  }
+
+}

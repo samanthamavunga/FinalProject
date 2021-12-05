@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +11,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>AimToShine.org
-
-  </title>
+  <title>Aim To Shine</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -25,61 +32,72 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Syle CSS-->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="assets/css/inner.css" rel="stylesheet">
+ 
+  
 
 </head>
 
 <body>
-  <!-- ======= Header ======= -->   
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-      <h1 class="logo me-auto"><a href="index.html">Aim To Shine</a></h1>
-      <!----
-      <a href="index.html" class="logo me-auto"><img src="C:\xampp\htdocs\mywebsites\My Final Project_Final Examination\Medilab\img\logo.jpeg" alt="" class="img-fluid" height="300 " width="100"></a>-->
 
-      <!--nav-->
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Our Mentorship</a></li>
-          <li><a class="nav-link scrollto" href="..\lab-12-demo\lab-12-demo\registration.php">Get Involved</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Donate</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Donate</a>
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+      <div class="container d-flex justify-content-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">aim.shine@gmail.com</a>
+          <i class="bi bi-phone"></i> +233 20924 6382
+        </div>
     </div>
-  </header>
-  <!-- End Header -->
 
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
 
+        <h1 class="logo me-auto"><a href="index.html">Aim To Shine</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container">
-      <h1>Welcome to Aim To Shine Intiative</h1>
-      <h2>We provide the best mentorship services to your Child at zero cost</h2>
-      <a href="#about" class="btn-get-started scrollto">Register With Us</a>
+        <!--nav-->
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="index.php">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#mentorship">Our Mentorship</a></li>
+            <li><a class="nav-link scrollto" href="#donations">Contact Us</a></li>
+          </ul>
+          <!--<i class="bi bi-list mobile-nav-toggle"></i>-->
+        </nav><!-- .navbar -->
+
+        <a href="Registration.php" class="appointment-btn scrollto"><span class="d-none d-md-inline">Register</a>
+      </div>
     </div>
-  </section>
-  <!-- End Hero -->
-  
+    </header><!-- End Header -->
+  <center>
+    <main id="main">
 
-  <?php
-// start session so that the errors can be available in this file
-session_start();
-?>
-    <div class="container">
+      <!--Breadcrumbs-->
+      <section class="breadcrumbs">
+        <div class="container">
 
-        <!-- ADD THIS ATTRIBUTE TO THE FORM TO ALSO VALIDATE WITH JAVASCRIPT BEFORE SUBMITTING TO BACKEND:
-              onsubmit="return validateForm(event);" 
-        -->
-        <form id="form" class="form"  action="functions/register_user_function.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm(event);">
-            <h2>Register With Us</h2>
+          <div class="d-flex justify-content-between align-items-center">
+            <h6><a href="login.php">Login</a>/Mentee</h6>
+            <ol>
+              <li><a href="login.php">Login</a></li>
+              <li>Admin</li>
+            </ol>
+          </div>
+        <h2 style="color: blue">NOTE: Parents can login/Register for their children</h2>
+        </div>
+      </section> <!--End of Breadcrumps-->
+
+      <section class="inner-page">
+        <div class="container1">
+        <p>
+            
+        <div class="lcontainer">
+            <form method="GET" action="./functions/login_function.php">
             <?php
                 if(isset($_SESSION["errors"])){
                     $errors = $_SESSION["errors"];
@@ -92,36 +110,34 @@ session_start();
                 }
                 // destroy session after displaying errors
                 $_SESSION["errors"] = null;
-            ?>
-            <div class="form-control">
-                <label for="username">Username</label>
-                <input type="text" placeholder="Enter Username" id="username" name="username">
-                <small id='usernameError'></small>
-            </div>
-            <div class="form-control">
-                <label for="email">Email</label>
-                <input type="text" placeholder="Enter Email" id="email" name="email">
-                <small id='emailError'></small>
-            </div>
-            <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" placeholder="Enter password" id="password" name="password">
-                <small id='passwordError'></small>
-            </div>
-            <div class="form-control">
-                <label for="password2">Confirm Password</label>
-                <input type="password" placeholder="Confirm Your Password" id="password2" name="password2">
-                <small id='password2Error'></small>
-            </div>
-            <div class="form-control">
-                <label for="">Upload Image</label>
-                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
-            </div>
-            <small id='success'></small>
-            <button type="submit" id='submitBtn' name="submit">Submit</button>
-        </form>
-    </div>
-    
+              ?>
+
+              <div class="imgcontainer">
+                <img src="assets/img/avatar_for_login.png" alt="ui" class="avatar">
+              </div>
+              <div class="container2">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <small style="color:red;">
+                
+                  </small>
+                
+                <button type="submit" name="submit">Login</button>
+                <!-- <input type="submit" name="Login" value="Login"/> -->
+
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+         </div>
+       </section>
+     </main><!---end of main section-->
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
@@ -177,14 +193,6 @@ session_start();
           &copy; Copyright <strong><span>AimToShine</span></strong>. All Rights Reserved
         </div>
         
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
     </div>
   </footer><!-- End Footer -->
 
@@ -197,11 +205,13 @@ session_start();
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="javascript/myscript.js"></script>   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+        
 
   <!-- JS File -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/main.js"></script>
-  <script src="./script.js"></script>
 
 </body>
 

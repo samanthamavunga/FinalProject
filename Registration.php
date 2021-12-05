@@ -79,7 +79,7 @@ session_start();
           <div class="d-flex justify-content-between align-items-center">
             <h2>Mentee/Parent</h2>
             <ol>
-              <li><a href="login.php">Login</a></li>
+              <li><a href="loginselector.php">Login</a></li>
               <li>Register</li>
             </ol>
           </div>
@@ -101,7 +101,7 @@ session_start();
 
             <!-- Registration form with javasript validation before php validation
             -->
-            <form id="form" class="form" method="POST" enctype="multipart/   form-data" action="functions/register_user_function.php" onsubmit="return validateForm(event);">
+            <form id="form" class="form" method="POST" enctype="multipart/form-data" action="./functions/register_user_function.php" onsubmit="return validateForm(event);">
               <h2>Register With Us</h2> 
               <?php
                 if(isset($_SESSION["errors"])){
@@ -120,7 +120,7 @@ session_start();
                 Already have an account? <a href="login.php">Sign in</a>
               </p>
 
-              <div class="form-control">
+              <div class="form-control" style="color:#3498db">
                 <label for="Firstname"><b>Firstname</b></label>
                 <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
                 <small id='fnameError'></small>
@@ -129,6 +129,7 @@ session_start();
               <div class="form-control">
                 <label for="Lastname"><b>Lastname</b></label>
                 <input type="text" placeholder="Enter Lastname" name="lname" id="lname" required>
+                <small id='LastnameError'></small>
               </div>
               
               <div class="form-control">
@@ -138,18 +139,31 @@ session_start();
               </div>
 
               <div  class="form-control">
+              <label for="user_type"><b>Select what relevent to you</b></label>
+                <select id="user_type" name="user_type">
+                  <option value="--select---">--select---</option>
+                  <option value="mentor">Mentor</option>
+                  <option value="mentee">Mentee</option>
+                  <option value="supervisor">supervisor</option>
+                  <small id='selectgenderError'></small>
+                </select>
+              </div>
+                 
+              <div  class="form-control">
               <label for="gender"><b>Select your gender</b></label>
                 <select id="gd" name="gender">
-                  <option value=”--select---”>--select---</option>
-                  <option value=”male”>Male</option>
-                  <option value=”female”>Female</option>
-                  <option value=”other”>Other</option>
+                  <option value="--select---">--select---</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                  <small id='selectgenderError'></small>
                 </select>
               </div>
 
               <div class="form-control">
                 <label for="dob"><b>Date Of Birth</b></label>
                 <input type="date" placeholder="Enter date of birth" name="dob" id="dob" required>
+                <small id='DOBError'></small>
               </div>
 
               <div class="form-control">
@@ -157,38 +171,18 @@ session_start();
                 <input type="text" placeholder="Enter Location" name="loc" id="loc" required>
               </div>
 
-              <div class="form-control">
-                  <label for="Street"><b>Street Name</b></label>
-                  <input type="text" placeholder="Enter streetname" name="street_loc" id="street_loc" required>
-              </div>
-              
-              <div class="form-control">
-                <label for="parents"><b>Name of Parent/Guardian</b></label>
-                <input type="text" placeholder="Parent/Guardian name" name="par" id="par" required>
-              </div>
-
-              <div class="form-control">
-                <label for="school_name"><b>Enter the name of your primary school</b></label>
-                <input type="text" placeholder="Primary school name" name="sch" id="sch" required>
-              </div>
-
-              <div class="form-control">
-                <p id="fieldreq">What classes are you taking?<br>
-                  What subjects do you need most help?<br>
-                  What are your favourite subject?<br>
-                  What are your hobbies?<br>
-                  What do you want to be when you grow up?<br>
-                  What is your favorite color
-                </p>
-                <label for="randominfor">Answer biefly</label>
-                <textarea id="randominfor" name="randominfor" rows="4" cols="50"> </textarea>
-              </div>
-
 
               <div class="form-control">
                 <label for="phonenumber"><b>Phone Number</b></label>
                 <input type="text" placeholder="Enter Phone Numer" name="pnum" id="pnum" required>
+                <small id='phonenumberError'></small>
               </div>
+              
+              <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Enter Email" id="email" name="email">
+                <small id='emailError'></small>
+            </div>
 
               <div class="form-control">
                 <label for="password"><b>Password</b></label>
@@ -200,11 +194,6 @@ session_start();
                 <label for="password2"><b>Confirm Password</b></label>
                 <input type="password" placeholder="Confirm Your Password" id="password2" name="password2" required>
                 <small id='password2Error'></small>
-              </div>
-
-              <div class="form-control">
-                <label for=""><b>Upload image</b></label>
-                <input type="file" class="form-control-file" name="image" id="exampleFormControlFile1">
               </div>
 
               <small id='success'></small>
@@ -286,8 +275,8 @@ session_start();
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="AimToShine_Web/assets/js/main.js"></script>
+  <script src="AimToShine_Web/assets/js/script.js"></script>
 
 </body>
 

@@ -52,20 +52,15 @@
 const form = $('#form');
 const fname = $('#fname');
 const lname = $('#lname');
+const user_type = $('#user_type');
 const username = $('#username');
 const gender = $('#gd');
 const dateofbirth = $('#dob');
 const location = $('#loc');
-const streetname = $('#street_name');
-const parents = $('#par');
-const school= $('#sch');
-const shorttext = $('#randominfor');
+const email = $('#email')
 const password = $('#password');
 const password2 = $('#password2');
 
-// username.keyup(function(e){
-//     console.log(username.val())
-// });
 
 // error count
 let errors = 0;
@@ -96,27 +91,24 @@ const checkInputLength = (input, min, max) => {
     }
 }
 
-/*
-const checkEmail = (input) => {
-    const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const checkEmail = (input) => 
+{
+    const regex2 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if(!regex.test(input.val())){
+    if(!regex2.test(input.val()))
+    {
         showError(input.next(), 'Email is not valid');
     }
 }
-*/
 
-const checkPasswordMatch = (password1, password2) => {
-    if(password1.val() != password2.val()){
+
+const checkPasswordMatch = (password1, password2) => 
+{
+    if(password1.val() != password2.val())
+    {
         showError(password2.next(), 'Your passwords do not match');
     }
 }
-
-// When form is submitted
-// form.submit(function(e){
-    
-//     // Submit the form
-// })
 
 const validateForm = (e) =>{
     //e.preventDefault();
@@ -124,11 +116,14 @@ const validateForm = (e) =>{
     errors = 0;
 
     // TODO check for required inputs
-    checkRequired([username, password, password2]);
+    checkRequired([username, email, password, password2]);
     // TODO check for username length
     checkInputLength(username, 5, 20);
     // TODO check for password length
     checkInputLength(password, 5, 15);
+
+     // TODO check for valid email
+     checkEmail(email);
 
     // TODO check if the passwords match
     checkPasswordMatch(password, password2);
